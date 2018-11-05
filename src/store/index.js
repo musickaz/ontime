@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
     loadedMeetups: [
       {
         imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/NYC_Montage_2014_4_-_Jleon.jpg',
-        id: 'jhdfgsjhdgfdfs',
+        id: 'jhdfgsjhdgfdfs12321',
         title: 'Meetup in New York',
         date: new Date(),
         location: 'New York',
