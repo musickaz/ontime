@@ -41,5 +41,6 @@ new Vue({
       storageBucket: 'max-meetupdev.appspot.com',
       messagingSenderId: '951577629864'
     })
+    this.$store.dispatch('loadMeetupsFromFirebase')
   }
 })

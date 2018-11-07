@@ -26,7 +26,8 @@ export const store = new Vuex.Store({
     ],
     user: null,
     loading: false,
-    error: null
+    error: null,
+    loadedMeetupsFromFirebase: []
   },
   mutations: {
     createMeetup (state, payload) {
@@ -43,6 +44,9 @@ export const store = new Vuex.Store({
     },
     clearError (state) {
       state.error = null
+    },
+    setLoadMeetups (state, payload) {
+      state.loadedMeetups = payload
     }
   },
   actions: {
@@ -52,11 +56,21 @@ export const store = new Vuex.Store({
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        date: payload.date,
-        id: 'ramdomIdksjdskjdksjdksj'
+        date: payload.date.toISOString()
       }
-      // Reach out to firebase and store it
-      commit('createMeetup', meetup)
+      // Reach out to firebase and then store it
+      firebase.database().ref('meetups').push(meetup)
+        .then((data) => {
+          console.log(data)
+          const key = data.key
+          commit('createMeetup', {
+            ...meetup,
+            id: key
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     signUserUp ({commit}, payload) {
       commit('clearError')
@@ -104,6 +118,39 @@ export const store = new Vuex.Store({
     },
     clearError ({commit}) {
       commit('clearError')
+    },
+    loadMeetupsFromFirebase ({commit}) {
+      commit('setLoading', true)
+      // get meetups from firebase
+      firebase.database().ref('meetups').once('value')
+        .then(
+          (data) => {
+            console.log(data)
+            const meetups = []
+            const obj = data.val()
+            console.log(obj)
+            for (var key in obj) {
+              meetups.push(
+                {
+                  id: key,
+                  title: obj[key].title,
+                  location: obj[key].location,
+                  imageUrl: obj[key].imageUrl,
+                  description: obj[key].description,
+                  date: obj[key].date
+                }
+              )
+            }
+            commit('setLoading', false)
+            commit('setLoadMeetups', meetups)
+          }
+        )
+        .catch(
+          (error) => {
+            commit('setLoading', false)
+            console.log(error)
+          }
+        )
     }
   },
   getters: {
