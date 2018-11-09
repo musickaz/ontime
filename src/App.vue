@@ -14,19 +14,35 @@
             {{ item.title }}
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile @click="onLogout" v-if="userIsAuth">          
+          <v-list-tile-action>
+            <v-icon>exit_to_app</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            Logout
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar class="primary">
       <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up" dark></v-toolbar-side-icon>
       <v-toolbar-title><router-link tag="span" style="cursor : pointer" to="/">MGApp</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only" v-for="item in menuItems" :key="item.title">
+      <v-toolbar-items class="hidden-xs-only">
         <v-btn
+          v-for="item in menuItems" :key="item.title"
           flat
           dark
           router
           :to="item.link">
-          <v-icon left>{{ item.icon }}</v-icon>{{ item.title }}
+          <v-icon dark left>{{ item.icon }}</v-icon>{{ item.title }}
+        </v-btn>
+        <v-btn
+          v-if="userIsAuth"
+          @click="onLogout"
+          dark 
+          flat>
+          <v-icon left>exit_to_app</v-icon>Logout
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -61,6 +77,11 @@ export default {
     },
     userIsAuth () {
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    }
+  },
+  methods: {
+    onLogout () {
+      this.$store.dispatch('logout')
     }
   }
 }
