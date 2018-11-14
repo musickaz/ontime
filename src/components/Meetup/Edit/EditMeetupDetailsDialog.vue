@@ -70,6 +70,11 @@ export default {
       if (this.editedTitle.trim() === '' || this.editedDescription.trim() === '') {
         return
       }
+      this.$store.dispatch('updateMeetupData', {
+        id: this.meetup.id,
+        title: this.editedTitle,
+        description: this.editedDescription
+      })
       this.editDialog = false
     }
   }
