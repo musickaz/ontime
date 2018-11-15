@@ -27,7 +27,7 @@
                         label="Tiltle"
                         id="title"
                         type="text"
-                        v-model="editedTitle    "
+                        v-model="editedTitle"
                         required
                         ></v-text-field>
                         <v-textarea
