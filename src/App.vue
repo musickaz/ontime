@@ -26,7 +26,11 @@
     </v-navigation-drawer>
     <v-toolbar class="primary">
       <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up" dark></v-toolbar-side-icon>
-      <v-toolbar-title><router-link tag="span" style="cursor : pointer" to="/">MGApp</router-link></v-toolbar-title>
+      <v-toolbar-title>
+        <router-link tag="span" style="cursor : pointer" to="/">
+          <img src="./assets/logo.png" style="height:50px; margin-top: 7px;" alt="MGApp">
+        </router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn
