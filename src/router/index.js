@@ -8,11 +8,17 @@ import Profile from '@/components/User/Profile'
 import Signup from '@/components/User/Signup'
 import Signin from '@/components/User/Signin'
 import AuthGuard from './auth-guard'
+import About from '@/components/Comunication/About.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/About',
+      name: 'About',
+      component: About
+    },
     {
       path: '/',
       name: 'Home',
