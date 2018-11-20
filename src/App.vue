@@ -14,7 +14,7 @@
             {{ item.title }}
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="onLogout" v-if="userIsAuth">          
+        <v-list-tile @click="onLogout" v-if="userIsAuth">
           <v-list-tile-action>
             <v-icon>exit_to_app</v-icon>
           </v-list-tile-action>
@@ -40,7 +40,7 @@
         <v-btn
           v-if="userIsAuth"
           @click="onLogout"
-          dark 
+          dark
           flat>
           <v-icon left>exit_to_app</v-icon>Logout
         </v-btn>
@@ -64,13 +64,16 @@ export default {
     menuItems () {
       let menuItems = [
         {icon: 'face', title: 'Sign up', link: '/signup'},
-        {icon: 'lock_open', title: 'Sign in', link: '/signin'}
+        {icon: 'lock_open', title: 'Sign in', link: '/signin'},
+        {icon: 'info', title: 'About', link: '/About'}
       ]
       if (this.userIsAuth) {
         menuItems = [
           {icon: 'pageview', title: 'View Meetups', link: '/meetups'},
           {icon: 'room', title: 'Organize Meetup', link: '/meetup/new'},
-          {icon: 'person', title: 'Profile', link: '/profile'}
+          {icon: 'person', title: 'Profile', link: '/profile'},
+          {icon: 'info', title: 'About', link: '/About'}
+
         ]
       }
       return menuItems

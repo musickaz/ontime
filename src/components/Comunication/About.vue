@@ -14,7 +14,7 @@
         <p>
         You can find the project repository of this app in my
         <a href="https://github.com/Foetus6907/mg-devmyapp-vue">GitHub repository</a>. This SPA is made with Firebase Hosting and Realtime Database, VueJs, Vuetify, and VueX for state management.
-        You can follow me on LinkedIn and GitHub, where i regularly post about Firebase and VueJs.
+        You can follow me on LinkedIn and GitHub, where i regularly post about Firebase, VueJs and dev in general.
         </p>
     </div>
 
