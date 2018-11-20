@@ -5,13 +5,13 @@
         transition="dialog-transition"
     >
     <v-btn accent slot="activator" class="primary">
-      {{ userIsRegistred ?  'Unregister' :  'Register' }}
+      {{ userIsRegistered ?  'Unregister' :  'Register' }}
     </v-btn>
     <v-card>
         <v-container>
             <v-layout row wrap>
                 <v-flex xs12>
-                    <v-card-title primary-title v-if="userIsRegistred">
+                    <v-card-title primary-title v-if="userIsRegistered">
                         Unregister from this Meetup
                     </v-card-title>
                     <v-card-title primary-title v-else>
@@ -22,7 +22,7 @@
             <v-divider></v-divider>
             <v-layout row wrap>
                 <v-flex xs12>
-                    <v-card-text v-if="userIsRegistred">
+                    <v-card-text v-if="userIsRegistered">
                         Click confirm button to Unregister
                     </v-card-text>
                     <v-card-text v-else>
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  props: ['meetup'],
+  props: ['meetupId'],
   data () {
     return {
       registrationDialog: false,
@@ -55,8 +55,19 @@ export default {
   },
   methods: {
     onConfirm () {
-      this.userIsRegistred ? this.userIsRegistred = false : this.userIsRegistred = true
+      if (this.userIsRegistered) {
+        this.$store.dispatch('unregisterUserForMeetup', this.meetupId)
+      } else {
+        this.$store.dispatch('registerUserForMeetup', this.meetupId)
+      }
       this.registrationDialog = false
+    }
+  },
+  computed: {
+    userIsRegistered () {
+      return this.$store.getters.user.registeredMeetups.findIndex((meetupId) => {
+        return meetupId === this.meetupId
+      }) >= 0
     }
   }
 }
