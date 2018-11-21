@@ -6,24 +6,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    loadedMeetups: [
-      {
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/NYC_Montage_2014_4_-_Jleon.jpg',
-        id: 'jhdfgsjhdgfdfs12321',
-        title: 'Meetup in New York',
-        date: new Date(),
-        location: 'New York',
-        description: 'New York New York !!'
-      },
-      {
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Paris_-_Eiffelturm_und_Marsfeld2.jpg/560px-Paris_-_Eiffelturm_und_Marsfeld2.jpg',
-        id: 'sfsfjbgsfjghg',
-        title: 'Meetup in Paris',
-        date: new Date(),
-        location: 'Paris',
-        description: 'Awsome Paris !'
-      }
-    ],
+    loadedMeetups: [],
     user: null,
     loading: false,
     error: null,
