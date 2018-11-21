@@ -1,6 +1,7 @@
 # mg-devmyapp-vue
 
-> Dev my app built with Vue + Vuetify + Firebase
+> Meetup like application.
+Single Page Application made with VueJs, Vuetify, Vuex and Firebase Realtime Database, Authentification, Storage and Hosting.
 
 ## Build Setup
 
