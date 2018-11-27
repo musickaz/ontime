@@ -17,6 +17,7 @@ export default {
     unregisterUserForMeetup (state, payload) {
       const registeredMeetups = state.user.registeredMeetups
       registeredMeetups.splice(registeredMeetups.findIndex(meetup => meetup.id === payload), 1)
+      
       Reflect.deleteProperty(state.user.fbKeys, payload)
     },
     setUser (state, payload) {
