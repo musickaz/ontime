@@ -99,7 +99,8 @@ export const store = new Vuex.Store({
         location: payload.location,
         description: payload.description,
         date: payload.date.toISOString(),
-        creatorId: getters.user.id
+        creatorId: getters.user.id,
+        imageUrl: payload.imageUrl
       }
       let imageUrl
       let key
@@ -253,6 +254,9 @@ export const store = new Vuex.Store({
       }
       if (payload.description) {
         editedMeetup.description = payload.description
+      }
+      if (payload.location) {
+        editedMeetup.location = payload.location
       }
       if (payload.date) {
         editedMeetup.date = payload.date

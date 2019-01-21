@@ -12,10 +12,10 @@
             <v-layout row wrap>
                 <v-flex xs12>
                     <v-card-title primary-title v-if="userIsRegistered">
-                        Unregister from this Meetup
+                        Leave from this Event
                     </v-card-title>
                     <v-card-title primary-title v-else>
-                        Register to this Meetup
+                        Join this Event
                     </v-card-title>
                 </v-flex>
             </v-layout>
@@ -23,10 +23,10 @@
             <v-layout row wrap>
                 <v-flex xs12>
                     <v-card-text v-if="userIsRegistered">
-                        Click confirm button to Unregister
+                        Click confirm button to Leave Event
                     </v-card-text>
                     <v-card-text v-else>
-                        Click confirm button to Register
+                        Click confirm button to Join this Event
                     </v-card-text>
                 </v-flex>
             </v-layout>

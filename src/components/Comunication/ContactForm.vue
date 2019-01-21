@@ -29,7 +29,6 @@
                                 class="form-control is-valid"
                                 v-model="contactData.email">
                     </div>
-                    
                 </div>
             </div>
             <div class="row">

@@ -1,4 +1,4 @@
-# mg-devmyapp-vue
+# airamp-Ontime
 
 > Meetup like application.
 Single Page Application made with VueJs, Vuetify, Vuex and Firebase Realtime Database, Authentification, Storage and Hosting.
@@ -20,5 +20,5 @@ npm run build --report
 ```
 ### App running in live @
 ```
-https://mg-meetupdev.firebaseapp.com/
+https://airamp-ontime.firebaseapp.com/
 ```
