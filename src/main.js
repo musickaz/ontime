@@ -12,6 +12,8 @@ import EditMeetupDetailsDialog from "./components/Meetup/Edit/EditMeetupDetailsD
 import EditMeetupDateDialog from "./components/Meetup/Edit/EditMeetupDateDialog.vue";
 import EditMeetupTimeDialog from "./components/Meetup/Edit/EditMeetupTimeDialog.vue";
 import RegisterDialog from "./components/Meetup/Registration/RegistrationDialog.vue";
+import timeline from "./components/Meetup/timeline.vue";
+
 
 
 
@@ -35,6 +37,7 @@ Vue.component("app-edit-meetup-details-dialog", EditMeetupDetailsDialog);
 Vue.component("app-edit-meetup-date-dialog", EditMeetupDateDialog);
 Vue.component("app-edit-meetup-time-dialog", EditMeetupTimeDialog);
 Vue.component("app-meetup-registration-dialog", RegisterDialog);
+Vue.component("app-timeline-dialog", timeline);
 // Vue.component("timeline", vue2vis.Timeline);
 
 /* eslint-disable no-new */
