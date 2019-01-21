@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1 v-if="RegisteredOrCreator">hoge</h1>
     <v-layout row wrap v-if="loading">
       <v-flex xs12 class="text-xs-center">
         <v-progress-circular indeterminate class="primary--text" :width="7" size="70"></v-progress-circular>
@@ -63,6 +64,14 @@ export default {
     },
     loading() {
       return this.$store.getters.loading;
+    },
+    userIsRegistered () {
+      return this.$store.getters.user.registeredMeetups.findIndex((meetupId) => {
+        return meetupId === this.id
+      }) >= 0
+    },
+    RegisteredOrCreator () {
+      return this.userIsRegistered || this.userIsCreator;
     }
   }
 };
