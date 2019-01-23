@@ -25,7 +25,7 @@
                         format="24hr"
                         style="width: 100%"
                         v-model="editedTime">
-                            <template slot-scope="{save, close}">
+                                <template slot-scope="{save, close}">
                                 <v-btn flat class="blue--text darken-1" @click.native="editDialog = false">Close</v-btn>
                                 <v-btn flat class="blue--text darken-1" @click.native="onSaveChanges">Save</v-btn>
                             </template>

@@ -42,6 +42,10 @@
             </v-card-text>
           </v-flex>
         </v-layout>
+<v-layout row wrap>
+        <app-edit-meetup-date-dialog :meetup="meetup" ></app-edit-meetup-date-dialog>
+              <app-edit-meetup-time-dialog :meetup="meetup" ></app-edit-meetup-time-dialog>
+              </v-layout>
         <v-divider></v-divider>
         <v-layout row wrap>
           <v-flex xs12>

@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <h1 v-if="registeredOrCreator">hoge</h1>
     <v-layout row wrap v-if="loading">
       <v-flex xs12 class="text-xs-center">
         <v-progress-circular indeterminate class="primary--text" :width="7" size="70"></v-progress-circular>
@@ -9,26 +8,20 @@
     <v-layout row wrap v-else>
       <v-flex xs12>
         <v-card>
-          <!-- <h6><br></h6> -->
           <v-img v-if="!registeredOrCreator" contain height="100px" :src="meetup.imageUrl"></v-img>
           <v-card-title primary-title>
             <h2 class="primary--text">{{ meetup.title }}</h2>
             <v-spacer></v-spacer>
-          <div class="info--text">{{ meetup.date | dateFilter}} - {{ meetup.location }}</div>
-          <v-spacer></v-spacer>
-            <template v-if="userIsCreator">
-              <v-spacer></v-spacer>
-              <app-edit-meetup-details-dialog :meetup="meetup"></app-edit-meetup-details-dialog>
-            </template>
+          <div class="info--text" v-if="!registeredOrCreator">{{ meetup.date | dateFilter}} - {{ meetup.location }}</div>
           </v-card-title>
           <app-timeline-dialog :meetup="meetup" v-if="registeredOrCreator"></app-timeline-dialog>
-          <!-- <v-card-media :src="meetup.imageUrl" height="150px"></v-card-media> -->
+          <app-chat-dialog :meetup="meetup" v-if="registeredOrCreator"></app-chat-dialog>
           <v-spacer></v-spacer>
             <div v-if="!registeredOrCreator" >{{meetup.description}}</div>
           <v-card-text>
             <div>
-              <app-edit-meetup-date-dialog :meetup="meetup" v-if="userIsCreator"></app-edit-meetup-date-dialog>
-              <app-edit-meetup-time-dialog :meetup="meetup" v-if="userIsCreator"></app-edit-meetup-time-dialog>
+              <app-edit-meetup-details-dialog :meetup="meetup" v-if="userIsCreator"></app-edit-meetup-details-dialog>
+
             </div>
           </v-card-text>
           <v-card-actions>
