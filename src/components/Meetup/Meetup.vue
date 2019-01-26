@@ -13,17 +13,14 @@
             <h2 class="primary--text">{{ meetup.title }}</h2>
             <v-spacer></v-spacer>
           <div class="info--text" v-if="!registeredOrCreator">{{ meetup.date | dateFilter}} - {{ meetup.location }}</div>
+          <app-edit-meetup-details-dialog :meetup="meetup" v-if="userIsCreator"></app-edit-meetup-details-dialog>
           </v-card-title>
           <app-timeline-dialog :meetup="meetup" v-if="registeredOrCreator"></app-timeline-dialog>
-          <app-chat-dialog :meetup="meetup" v-if="registeredOrCreator"></app-chat-dialog>
+          <app-chater-dialog :meetup="meetup" v-if="registeredOrCreator"></app-chater-dialog>
           <v-spacer></v-spacer>
             <div v-if="!registeredOrCreator" >{{meetup.description}}</div>
-          <v-card-text>
-            <div>
-              <app-edit-meetup-details-dialog :meetup="meetup" v-if="userIsCreator"></app-edit-meetup-details-dialog>
-
-            </div>
-          </v-card-text>
+          <!-- <v-card-text>
+          </v-card-text> -->
           <v-card-actions>
             <v-spacer></v-spacer>
             <app-meetup-registration-dialog
@@ -70,3 +67,8 @@ export default {
   }
 };
 </script>
+<style>
+.sc-chat-window {
+  z-index: 100;
+}
+</style>

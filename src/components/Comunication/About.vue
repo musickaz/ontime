@@ -1,5 +1,8 @@
 <template>
+<div>
+<h3>ここでは簡単な基本そうさをご紹介します</h3>
   <div id="visualization"></div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +21,7 @@ export default {
 
   // Create a DataSet (allows two way data-binding)
   items = new vis.DataSet([
-    {id: 1, content: 'GFC meeting item 3', start: '2017-02-20', title: 'The various committees adjourn for bicycles'},
+    {id: 1, content: 'GFC meeting item 3', start: '2019-01-21', title: 'で？'},
   ]);
 
   // Configuration for the Timeline
@@ -27,6 +30,7 @@ export default {
       followMouse: true,
       overflowMethod: 'cap',
       editable: true,
+      onDropObjectOnItem: true,
     }
   };
   options.editable = {
@@ -48,4 +52,7 @@ export default {
 
 <style>
 @import "vue2vis/dist/vue2vis.css";
+.vis-time-axis .vis-text {
+  color: #DBDBDB;
+}
 </style>

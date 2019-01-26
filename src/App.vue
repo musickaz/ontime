@@ -60,7 +60,7 @@ export default {
         menuItems = [
           { icon: "pageview", title: "View Events", link: "/meetups" },
           { icon: "room", title: "Create Event", link: "/meetup/new" },
-          { icon: "person", title: "Profile", link: "/profile" },
+          // { icon: "person", title: "Profile", link: "/profile" },
           { icon: "info", title: "About", link: "/About" }
         ];
       }
